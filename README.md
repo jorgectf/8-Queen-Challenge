@@ -1,7 +1,5 @@
 <h1 align="center">Welcome to 9 Queen Challenge 👋</h1>
 <p>
-    <img alt="Version" src="https://img.shields.io/npm/v/9 Queen Challenge.svg">
-  </a>
   <a href="https://github.com/AdamCraftmaster/9-Queen-Challenge/blob/main/LICENSE" target="_blank">
     <img alt="License: gplv3" src="https://img.shields.io/badge/License-gplv3-yellow.svg" />
   </a>
