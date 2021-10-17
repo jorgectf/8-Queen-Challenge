@@ -12,7 +12,7 @@
 
 ## Info
 
-Made with Java 17, tried to make it compatible with Java 11 or newer
+Made with Java 16
 
 ## Author
 
