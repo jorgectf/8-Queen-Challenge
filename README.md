@@ -28,7 +28,7 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2021 [Adam Nativ](https://github.com/AdamCraftmaster).<br />
-This project is [gplv3](https://github.com/AdamCraftmaster/9-Queen-Challenge/blob/main/LICENSE) licensed.
+This project is [GNU GENERAL PUBLIC LICENSE Version 3](https://github.com/AdamCraftmaster/9-Queen-Challenge/blob/main/LICENSE) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
