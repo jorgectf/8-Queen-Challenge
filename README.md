@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to 9 Queen Challenge 👋</h1>
+<h1 align="center">Welcome to 8 Queen Challenge 👋</h1>
 <p>
   <a href="https://github.com/AdamCraftmaster/9-Queen-Challenge/blob/main/LICENSE" target="_blank">
     <img alt="License: gplv3" src="https://img.shields.io/badge/License-gplv3-yellow.svg" />
@@ -8,7 +8,7 @@
   </a>
 </p>
 
-> A simple CLI program that solves the 9 queen challenge
+> A simple CLI program that solves the 8 queen challenge
 
 ## Info
 
@@ -41,7 +41,7 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2021 [Adam Nativ](https://github.com/AdamCraftmaster).<br />
-This project is [GNU GENERAL PUBLIC LICENSE Version 3](https://github.com/AdamCraftmaster/9-Queen-Challenge/blob/main/LICENSE) licensed.
+This project is [GNU GENERAL PUBLIC LICENSE Version 3](https://github.com/AdamCraftmaster/8-Queen-Challenge/blob/main/LICENSE) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
