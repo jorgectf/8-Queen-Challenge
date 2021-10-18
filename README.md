@@ -8,11 +8,24 @@
   </a>
 </p>
 
-> A simple program that solves the 9 queen challenge
+> A simple CLI program that solves the 9 queen challenge
 
 ## Info
 
 Made with Java 16
+
+## Usage
+
+Build project with
+```sh
+mvn compile -f "(location of pom.xml)"
+mvn package -f "(location of pom.xml)"
+```
+Then run app by using
+```sh
+java -cp .\target\queenchallenge-x.x-SNAPSHOT.jar me.adamcraftmaster.App
+```
+in the terminal (used Powershell for example)
 
 ## Author
 
