@@ -12,6 +12,8 @@
 
 ## Info
 
+The 8 queen challenge is a challenge in which 1 queen must be placed on each column and must be arranged on each row so that no queen is in direct attack range of another (can not be diagonal or forward/backward from another queen)
+
 Made with Java 16
 
 ## Usage
