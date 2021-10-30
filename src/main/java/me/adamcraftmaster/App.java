@@ -1,13 +1,73 @@
 package me.adamcraftmaster;
-
-/**
- * Hello world!
- *
- */
 public class App 
 {
+    public static int debug = 2;
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+
+        //Initialize the starting positions of all pieces
+        int startboard[] = {0,0,0,0,0,0,0,0};
+
+        checkLine(startboard,0);
+        System.out.println("done!");
+
     }
+
+    public static void debug(String message, int debugLevel) {
+        if (debugLevel == debug || debug == 3) {
+            System.out.println(message);
+        }
+    }
+
+    public static void printBoard(int[] board){
+        System.out.println("board:");
+        for(int i = 0; i < board.length; i++){
+            System.out.print(board[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static boolean checkValid(int x1, int y1, int x2, int y2) {
+        debug("Checking validity of " + x1 + " " + y1 + " " + x2 + " " + y2, 1);
+        //check the validity between 2 pieces and see if they attack eachother (directly above/below or diagonal)
+        if (x1 == x2) {
+            debug("same line", 1);
+            return false;
+        }
+        else if ((y2-y1)==(x2-x1) || (y2-y1)==-(x2-x1)) {
+            debug("diagonal", 1);
+            return false;
+        }
+        else {
+            debug("valid move", 1);
+            return true;
+        }
+    }
+
+    public static void checkLine(int board[], int y) {
+        debug("Checking line " + (y+1), 2);
+        for (int x = 1; x <= board.length; x++) { 
+            if (debug>=2) printBoard(board);
+            debug("x: " + x + " y: " + (y+1), 2);
+            boolean invalidEver = false;
+            for (int yTest = 0; yTest < y; yTest++) {
+                if (!checkValid(x, y+1, board[yTest], yTest+1)) {
+                    invalidEver = true;
+                }
+            }
+            if (!invalidEver) {
+                board[y] = x;
+                if (y == board.length-1) {
+                    System.out.println("Solution found!");
+                    printBoard(board);
+                }
+                else {
+                    checkLine(board, y+1);
+                }
+            }
+        }
+        board[y] = 0;
+        debug("Finished line " + (y+1), 2);
+    }
+
 }
