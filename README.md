@@ -6,9 +6,8 @@
   <a href="https://twitter.com/AdamCraftmaster" target="_blank">
     <img alt="Twitter: AdamCraftmaster" src="https://img.shields.io/twitter/follow/AdamCraftmaster.svg?style=social" />
   </a>
+  <a href="https://www.codefactor.io/repository/github/adamcraftmaster/8-queen-challenge"><img src="https://www.codefactor.io/repository/github/adamcraftmaster/8-queen-challenge/badge" alt="CodeFactor" /></a>
 </p>
-
-[![CodeFactor](https://www.codefactor.io/repository/github/adamcraftmaster/8-queen-challenge/badge)](https://www.codefactor.io/repository/github/adamcraftmaster/8-queen-challenge)
 
 > A simple CLI program that solves the 8 queen challenge
 
