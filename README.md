@@ -8,6 +8,8 @@
   </a>
 </p>
 
+[![CodeFactor](https://www.codefactor.io/repository/github/adamcraftmaster/8-queen-challenge/badge)](https://www.codefactor.io/repository/github/adamcraftmaster/8-queen-challenge)
+
 > A simple CLI program that solves the 8 queen challenge
 
 ## Info
