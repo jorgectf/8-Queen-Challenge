@@ -3,8 +3,9 @@ package me.adamcraftmaster;
 import java.util.Scanner;
 public class App 
 {
-    public static int debug = 0;
-    public static boolean printOne = false;
+    static int debug = 0;
+    static boolean printOne = false;
+    static int solutionsFound = 0;
     public static void main( String[] args )
     {
         Scanner scanner = new Scanner(System.in);
@@ -38,10 +39,11 @@ public class App
                 printOne = false;
                 break;
         }
-        scanner.close();
-
+        
         //Initialize the starting positions of all pieces
-        int startboard[] = {0,0,0,0,0,0,0,0};
+        System.out.println("Enter the number of rows and columns");
+        int size = scanner.nextInt();
+        int[] startboard = new int[size];
 
         checkLine(startboard,0);
 
@@ -61,8 +63,28 @@ public class App
         }
         System.out.println();
 */
-
-        System.out.println("board:");
+// └┘┼─┴├┤┬┌┐│
+/*
+┌───┬───┬───┬───┬───┬───┬───┬───┐
+│ x │ . │ x │ . │   │   │   │   │
+├───┼───┼───┼───┼───┼───┼───┼───┼
+│ x │ . │ x │ . │   │   │   │   │
+├───┼───┼───┼───┼───┼───┼───┼───┼
+│ x │ . │ x │ . │   │   │   │   │
+├───┼───┼───┼───┼───┼───┼───┼───┼
+│ x │ . │ x │ . │   │   │   │   │
+├───┼───┼───┼───┼───┼───┼───┼───┼
+│ x │ . │ x │ . │   │   │   │   │
+├───┼───┼───┼───┼───┼───┼───┼───┼
+│ x │ . │ x │ . │   │   │   │   │
+├───┼───┼───┼───┼───┼───┼───┼───┼
+│ x │ . │ x │ . │   │   │   │   │
+├───┼───┼───┼───┼───┼───┼───┼───┼
+│ x │ . │ x │ . │   │   │   │   │
+└───┴───┴───┴───┴───┴───┴───┴───┘
+beautiful OwO
+*/
+/*        System.out.println("board:");
         for(int y = 0; y < board.length; y++){
             for(int x = 1; x <= board.length; x++){
                 if(board[y] == x) {
@@ -75,6 +97,43 @@ public class App
             System.out.println();
         }
         System.out.println();
+*/
+        //┌───┬───┬───┬───┬───┬───┬───┬───┐
+        System.out.print("┌");
+        for(int i = 0; i < board.length-1; i++){
+            System.out.print("───┬");
+        }
+        System.out.println("───┐");
+        //│ x │ . │ x │ . │   │   │   │   │
+        for(int y = 0; y < board.length; y++){
+            System.out.print("│");
+            for(int x = 1; x <= board.length; x++){
+                if(board[y] == x) {
+                    System.out.print(" X ");
+                }
+                else {
+                    System.out.print(" . ");
+                }
+                System.out.print("│");
+            }
+            System.out.println();
+            if(y != board.length-1){
+                //├───┼───┼───┼───┼───┼───┼───┼───┤
+                System.out.print("├");
+                for (int i = 0; i < board.length-1; i++) {
+                    System.out.print("───┼");
+                }
+                System.out.println("───┤");
+            }
+            else {
+                //└───┴───┴───┴───┴───┴───┴───┴───┘
+                System.out.print("└");
+                for (int i = 0; i < board.length-1; i++) {
+                    System.out.print("───┴");
+                }
+                System.out.println("───┘");
+            }
+        }
 
     }
 
@@ -109,7 +168,8 @@ public class App
             if (!invalidEver) {
                 board[y] = x;
                 if (y == board.length-1) {
-                    System.out.println("Solution found!");
+                    solutionsFound++;
+                    System.out.println("Solution " + solutionsFound + " found!");
                     printBoard(board);
                     if(printOne) System.exit(0);
                 }
