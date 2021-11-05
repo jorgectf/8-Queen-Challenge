@@ -25,7 +25,7 @@ mvn package -f "(location of pom.xml)"
 ```
 Then run app by using
 ```sh
-java -cp .\target\queenchallenge-x.x-SNAPSHOT.jar me.adamcraftmaster.App
+java -jar .\target\queenchallenge-x.x-SNAPSHOT.jar
 ```
 in the terminal (used Powershell for example)
 
