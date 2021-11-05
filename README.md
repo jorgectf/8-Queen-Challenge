@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to 8 Queen Challenge 👋</h1>
 <p>
-  <a href="https://github.com/AdamCraftmaster/9-Queen-Challenge/blob/main/LICENSE" target="_blank">
+  <a href="https://github.com/AdamCraftmaster/8-Queen-Challenge/blob/main/LICENSE" target="_blank">
     <img alt="License: gplv3" src="https://img.shields.io/badge/License-gplv3-yellow.svg" />
   </a>
   <a href="https://twitter.com/AdamCraftmaster" target="_blank">
@@ -14,6 +14,7 @@
 ## Info
 
 The 8 queen challenge is a challenge in which 1 queen must be placed on each column and must be arranged on each row so that no queen is in direct attack range of another (can not be diagonal or forward/backward from another queen)
+The code also functions with any number of rows and columns so long that a square forms.
 
 Made with Java 16
 
