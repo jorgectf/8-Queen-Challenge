@@ -1,15 +1,49 @@
 package me.adamcraftmaster;
+
+import java.util.Scanner;
 public class App 
 {
-    public static int debug = 2;
+    public static int debug = 0;
+    public static boolean printOne = false;
     public static void main( String[] args )
     {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose DEBUG level, 0 for none, 1 for checkValid verbose, 2 for checkLine verbose, 3 for all verbose");
+        switch (scanner.nextInt()) {
+            case 0:
+                debug = 0;
+                break;
+            case 1:
+                debug = 1;
+                break;
+            case 2:
+                debug = 2;
+                break;
+            case 3:
+                debug = 3;
+                break;
+            default:
+                debug = 0;
+                break;
+        }
+        System.out.println("Choose if you want to print all combos or just one, 1 for one, 2 for all");
+        switch (scanner.nextInt()) {
+            case 1:
+                printOne = true;
+                break;
+            case 2:
+                printOne = false;
+                break;
+            default:
+                printOne = false;
+                break;
+        }
+        scanner.close();
 
         //Initialize the starting positions of all pieces
         int startboard[] = {0,0,0,0,0,0,0,0};
 
         checkLine(startboard,0);
-        System.out.println("done!");
 
     }
 
@@ -20,11 +54,28 @@ public class App
     }
 
     public static void printBoard(int[] board){
+/*
         System.out.println("board:");
         for(int i = 0; i < board.length; i++){
             System.out.print(board[i] + " ");
         }
         System.out.println();
+*/
+
+        System.out.println("board:");
+        for(int y = 0; y < board.length; y++){
+            for(int x = 1; x <= board.length; x++){
+                if(board[y] == x) {
+                    System.out.print("X ");
+                }
+                else {
+                    System.out.print(". ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+
     }
 
     public static boolean checkValid(int x1, int y1, int x2, int y2) {
@@ -46,8 +97,8 @@ public class App
 
     public static void checkLine(int board[], int y) {
         debug("Checking line " + (y+1), 2);
+        if (debug>=2) printBoard(board);
         for (int x = 1; x <= board.length; x++) { 
-            if (debug>=2) printBoard(board);
             debug("x: " + x + " y: " + (y+1), 2);
             boolean invalidEver = false;
             for (int yTest = 0; yTest < y; yTest++) {
@@ -60,6 +111,7 @@ public class App
                 if (y == board.length-1) {
                     System.out.println("Solution found!");
                     printBoard(board);
+                    if(printOne) System.exit(0);
                 }
                 else {
                     checkLine(board, y+1);
