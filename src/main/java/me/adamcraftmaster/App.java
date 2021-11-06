@@ -5,28 +5,12 @@ public class App
 {
     static int debug = 0;
     static boolean printOne = false;
-    static int solutionsFound = 0;
     public static void main( String[] args )
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose DEBUG level, 0 for none, 1 for checkValid verbose, 2 for checkLine verbose, 3 for all verbose");
-        switch (scanner.nextInt()) {
-            case 0:
-                debug = 0;
-                break;
-            case 1:
-                debug = 1;
-                break;
-            case 2:
-                debug = 2;
-                break;
-            case 3:
-                debug = 3;
-                break;
-            default:
-                debug = 0;
-                break;
-        }
+        System.out.println("Choose DEBUG level, 0 for none, 1 for checkValid verbose, 2 for checkLine verbose, 3 for all verbose, 4 for only number of solutions");
+        debug = scanner.nextInt();
+        if(debug > 4) debug = 0;
         System.out.println("Choose if you want to print all combos or just one, 1 for one, 2 for all");
         switch (scanner.nextInt()) {
             case 1:
@@ -43,10 +27,21 @@ public class App
         //Initialize the starting positions of all pieces
         System.out.println("Enter the number of rows and columns");
         int size = scanner.nextInt();
-        int[] startboard = new int[size];
-
-        checkLine(startboard,0);
-
+        int[] startboard;
+        int solutions;
+        if(size == 0) {
+            System.out.println("Warning: this tests every solution for boards from 3x3 to 20x20, please stop program if your computer heats up!");
+            for(int i = 3; i <= 20; i++) {
+                startboard = new int[i];
+                solutions = checkLine(startboard,0);
+                System.out.println("Board Size: " + i + " Number of Solutions: " + solutions);
+            }
+        }
+        else {
+            startboard = new int[size];
+            solutions = checkLine(startboard,0);
+            System.out.println("Found " + solutions + " solutions!");
+        }
     }
 
     public static void debug(String message, int debugLevel) {
@@ -154,9 +149,10 @@ beautiful OwO
         }
     }
 
-    public static void checkLine(int board[], int y) {
+    public static int checkLine(int board[], int y) {
+        int solutionCount = 0;
         debug("Checking line " + (y+1), 2);
-        if (debug>=2) printBoard(board);
+        if (debug==2 || debug==3) printBoard(board);
         for (int x = 1; x <= board.length; x++) { 
             debug("x: " + x + " y: " + (y+1), 2);
             boolean invalidEver = false;
@@ -168,18 +164,18 @@ beautiful OwO
             if (!invalidEver) {
                 board[y] = x;
                 if (y == board.length-1) {
-                    solutionsFound++;
-                    System.out.println("Solution " + solutionsFound + " found!");
-                    printBoard(board);
+                    solutionCount++;
+                    if(debug!=4) printBoard(board);
                     if(printOne) System.exit(0);
                 }
                 else {
-                    checkLine(board, y+1);
+                   solutionCount+=checkLine(board, y+1);
                 }
             }
         }
         board[y] = 0;
         debug("Finished line " + (y+1), 2);
+        return solutionCount;
     }
 
 }
