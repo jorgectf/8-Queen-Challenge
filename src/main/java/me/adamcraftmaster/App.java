@@ -29,7 +29,8 @@ public class App
         int size = scanner.nextInt();
         int[] startboard;
         int solutions;
-        if(size == 0) {
+        scanner.close();
+        if(size == 0) { //secret mode to test many board sizes
             System.out.println("Warning: this tests every solution for boards from 3x3 to 20x20, please stop program if your computer heats up!");
             for(int i = 3; i <= 20; i++) {
                 startboard = new int[i];
@@ -37,27 +38,20 @@ public class App
                 System.out.println("Board Size: " + i + " Number of Solutions: " + solutions);
             }
         }
-        else {
-            startboard = new int[size];
-            solutions = checkLine(startboard,0);
-            System.out.println("Found " + solutions + " solutions!");
+        else { //normal mode
+            startboard = new int[size]; //initialize the board with the size given by the user
+            solutions = checkLine(startboard,0); //check the board for solutions
+            System.out.println("Found " + solutions + " solutions!"); //print the number of solutions found
         }
     }
 
     public static void debug(String message, int debugLevel) {
-        if (debugLevel == debug || debug == 3) {
+        if (debugLevel == debug || debug == 3) { //debug level 3 is all debug
             System.out.println(message);
         }
     }
 
     public static void printBoard(int[] board){
-/*
-        System.out.println("board:");
-        for(int i = 0; i < board.length; i++){
-            System.out.print(board[i] + " ");
-        }
-        System.out.println();
-*/
 // └┘┼─┴├┤┬┌┐│
 /*
 ┌───┬───┬───┬───┬───┬───┬───┬───┐
@@ -79,54 +73,41 @@ public class App
 └───┴───┴───┴───┴───┴───┴───┴───┘
 beautiful OwO
 */
-/*        System.out.println("board:");
-        for(int y = 0; y < board.length; y++){
-            for(int x = 1; x <= board.length; x++){
-                if(board[y] == x) {
-                    System.out.print("X ");
-                }
-                else {
-                    System.out.print(". ");
-                }
-            }
-            System.out.println();
-        }
-        System.out.println();
-*/
+
         //┌───┬───┬───┬───┬───┬───┬───┬───┐
-        System.out.print("┌");
+        System.out.print("┌"); //top left corner
         for(int i = 0; i < board.length-1; i++){
-            System.out.print("───┬");
+            System.out.print("───┬"); //top row
         }
-        System.out.println("───┐");
+        System.out.println("───┐"); //top right corner
         //│ x │ . │ x │ . │   │   │   │   │
         for(int y = 0; y < board.length; y++){
-            System.out.print("│");
+            System.out.print("│"); //left side
             for(int x = 1; x <= board.length; x++){
                 if(board[y] == x) {
-                    System.out.print(" X ");
+                    System.out.print(" X "); //queen
                 }
                 else {
-                    System.out.print(" . ");
+                    System.out.print(" . "); //empty
                 }
-                System.out.print("│");
+                System.out.print("│"); //right side
             }
             System.out.println();
             if(y != board.length-1){
                 //├───┼───┼───┼───┼───┼───┼───┼───┤
-                System.out.print("├");
+                System.out.print("├"); //middle left
                 for (int i = 0; i < board.length-1; i++) {
-                    System.out.print("───┼");
+                    System.out.print("───┼"); //middle row
                 }
-                System.out.println("───┤");
+                System.out.println("───┤"); //middle right
             }
             else {
                 //└───┴───┴───┴───┴───┴───┴───┴───┘
-                System.out.print("└");
+                System.out.print("└"); //bottom left
                 for (int i = 0; i < board.length-1; i++) {
-                    System.out.print("───┴");
+                    System.out.print("───┴"); //bottom row
                 }
-                System.out.println("───┘");
+                System.out.println("───┘"); //bottom right
             }
         }
 
@@ -135,47 +116,47 @@ beautiful OwO
     public static boolean checkValid(int x1, int y1, int x2, int y2) {
         debug("Checking validity of " + x1 + " " + y1 + " " + x2 + " " + y2, 1);
         //check the validity between 2 pieces and see if they attack eachother (directly above/below or diagonal)
-        if (x1 == x2) {
+        if (x1 == x2) { //same row
             debug("same line", 1);
             return false;
         }
-        else if ((y2-y1)==(x2-x1) || (y2-y1)==-(x2-x1)) {
+        else if ((y2-y1)==(x2-x1) || (y2-y1)==-(x2-x1)) { //diagonal because slope of 1 or -1
             debug("diagonal", 1);
             return false;
         }
         else {
-            debug("valid move", 1);
+            debug("valid move", 1); //valid move
             return true;
         }
     }
 
     public static int checkLine(int board[], int y) {
-        int solutionCount = 0;
-        debug("Checking line " + (y+1), 2);
-        if (debug==2 || debug==3) printBoard(board);
-        for (int x = 1; x <= board.length; x++) { 
+        int solutionCount = 0; 
+        debug("Checking line " + (y+1), 2); 
+        if (debug==2 || debug==3) printBoard(board); //print board if debug level is 2 or 3
+        for (int x = 1; x <= board.length; x++) {  //for each piece
             debug("x: " + x + " y: " + (y+1), 2);
-            boolean invalidEver = false;
-            for (int yTest = 0; yTest < y; yTest++) {
+            boolean invalidEver = false; //if any piece is invalid, then the whole line is invalid
+            for (int yTest = 0; yTest < y; yTest++) {  //for each piece that has been placed
                 if (!checkValid(x, y+1, board[yTest], yTest+1)) {
                     invalidEver = true;
                 }
             }
             if (!invalidEver) {
-                board[y] = x;
+                board[y] = x; //place piece
                 if (y == board.length-1) {
-                    solutionCount++;
-                    if(debug!=4) printBoard(board);
+                    solutionCount++; //found a solution
+                    if(debug!=4) printBoard(board); 
                     if(printOne) System.exit(0);
                 }
                 else {
-                   solutionCount+=checkLine(board, y+1);
+                   solutionCount+=checkLine(board, y+1); //check if future pieces can be placed
                 }
             }
         }
-        board[y] = 0;
+        board[y] = 0; //undo placement
         debug("Finished line " + (y+1), 2);
-        return solutionCount;
+        return solutionCount; //return number of solutions
     }
 
 }
