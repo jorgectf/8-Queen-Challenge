@@ -25,4 +25,30 @@ public class AppTest
             }
         }
     }
+    //Made using github.dev on an iPad (works pretty well but I can not test)
+    @Test
+    public void checkLineSolutions {
+        //https://en.wikipedia.org/wiki/Eight_queens_puzzle#Counting_solutions
+        //! WARNING: the following test will be simulating all boards from a size of 3x3 to a size of 9x9, if you experience lag, please end the test.
+        System.out.println("WARNING: the following test will be simulating all boards from a size of 3x3 to a size of 9x9, if you experience lag, please end the test.")
+        App tester = new App();
+
+        tester.debug = 0;
+
+        int[] startboard;
+        startboard = {0,0,0}; 
+        assertTrue(tester.checkLine(startboard,0) == 0); //3x3 has no solutions
+        startboard = {0,0,0,0};
+        assertTrue(tester.checkLine(startboard,0) == 2); //4x4 has 2 solutions
+        startboard = {0,0,0,0,0};
+        assertTrue(tester.checkLine(startboard,0) == 10); //5x5 has 10 solutions
+        startboard = {0,0,0,0,0,0};
+        assertTrue(tester.checkLine(startboard,0) == 4); //6x6 has 4 solutions
+        startboard = {0,0,0,0,0,0,0};
+        assertTrue(tester.checkLine(startboard,0) == 40); //7x7 has 40 solutions
+        startboard = {0,0,0,0,0,0,0,0};
+        assertTrue(tester.checkLine(startboard,0) == 92); //8x8 has 92 solutions
+        startboard = {0,0,0,0,0,0,0,0,0};
+        assertTrue(tester.checkLine(startboard,0) == 352); //9x9 has 352 solutions
+    }
 }
