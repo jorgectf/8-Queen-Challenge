@@ -45,12 +45,23 @@ public class App
         }
     }
 
+    
+    /** 
+     * A more advanced print function that only sends the board to the console if the debug level is high enough
+     * @param message the message to print
+     * @param debugLevel the debug level to check against
+     */
     public static void debug(String message, int debugLevel) {
         if (debugLevel == debug || debug == 3) { //debug level 3 is all debug
             System.out.println(message);
         }
     }
 
+    
+    /** 
+     * A function that prints out a pretty board
+     * @param board the board to print
+     */
     public static void printBoard(int[] board){
 // └┘┼─┴├┤┬┌┐│
 /*
@@ -113,6 +124,15 @@ beautiful OwO
 
     }
 
+    
+    /** 
+     * A function that checks two pieces against each other to see if they can be placed on the board
+     * @param x1 the x of the first piece
+     * @param y1 the y of the first piece
+     * @param x2 the x of the second piece
+     * @param y2 the y of the second piece
+     * @return boolean: true if the pieces can be placed on the board, false if they can't
+     */
     public static boolean checkValid(int x1, int y1, int x2, int y2) {
         debug("Checking validity of " + x1 + " " + y1 + " " + x2 + " " + y2, 1);
         //check the validity between 2 pieces and see if they attack eachother (directly above/below or diagonal)
@@ -130,6 +150,13 @@ beautiful OwO
         }
     }
 
+    
+    /** 
+     * A recursive function that checks the board for solutions
+     * @param board the board to check
+     * @param y the line to check
+     * @return int: the number of solutions found
+     */
     public static int checkLine(int board[], int y) {
         int solutionCount = 0; 
         debug("Checking line " + (y+1), 2); 

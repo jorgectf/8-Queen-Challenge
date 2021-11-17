@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/**
- * Unit test for checking if the checkValid function works with both functional and non functional values.
- */
 public class AppTest 
 {
+    /**
+     * Unit test for checking if the checkValid function works with both functional and non functional values.
+    */
     @Test
     public void checkValidTest() {
         App tester = new App();
@@ -25,6 +25,9 @@ public class AppTest
             }
         }
     }
+    /**
+     * Unit test for checking if the checkLine function works with different board sizes.
+    */
     @Test
     public void checkLineSolutions() {
         //https://en.wikipedia.org/wiki/Eight_queens_puzzle#Counting_solutions
