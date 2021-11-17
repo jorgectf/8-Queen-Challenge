@@ -18,18 +18,24 @@ The code also functions with any number of rows and columns so long that a squar
 
 Made with Java 16
 
-## Usage
+## Install
 
-Build project with
 ```sh
 mvn compile -f "(location of pom.xml)"
 mvn package -f "(location of pom.xml)"
 ```
-Then run app by using
+## Usage
+
 ```sh
 java -jar .\target\queenchallenge-x.x-SNAPSHOT.jar
 ```
-in the terminal (used Powershell for example)
+
+
+## Run tests
+
+```sh
+mvn test -f "(location of pom.xml)"
+```
 
 ## Author
 
