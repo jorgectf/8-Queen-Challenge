@@ -18,6 +18,12 @@ The code also functions with any number of rows and columns so long that a squar
 
 Made with Java 16
 
+### ✨ [Demo](https://i.imgur.com/0Ox8HLe.gif)
+
+<p align="center">
+  <img width="700" align="center" src="https://i.imgur.com/0Ox8HLe.gif" alt="demo"/>
+</p>
+
 ## Install
 
 ```sh
