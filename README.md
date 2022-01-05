@@ -7,6 +7,7 @@
     <img alt="Twitter: AdamCraftmaster" src="https://img.shields.io/twitter/follow/AdamCraftmaster.svg?style=social" />
   </a>
   <a href="https://www.codefactor.io/repository/github/adamcraftmaster/8-queen-challenge"><img src="https://www.codefactor.io/repository/github/adamcraftmaster/8-queen-challenge/badge" alt="CodeFactor" /></a>
+  <a href="https://circleci.com/gh/AdamCraftmaster/8-Queen-Challenge/tree/main"><img src="https://circleci.com/gh/AdamCraftmaster/8-Queen-Challenge/tree/main.svg?style=svg" alt="CircleCI"></a>
 </p>
 
 > A simple CLI program that solves the 8 queen challenge
