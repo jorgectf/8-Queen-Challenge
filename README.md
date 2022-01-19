@@ -8,6 +8,7 @@
   </a>
   <a href="https://www.codefactor.io/repository/github/adamcraftmaster/8-queen-challenge"><img src="https://www.codefactor.io/repository/github/adamcraftmaster/8-queen-challenge/badge" alt="CodeFactor" /></a>
   <a href="https://codebeat.co/projects/github-com-adamcraftmaster-8-queen-challenge-main"><img alt="codebeat badge" src="https://codebeat.co/badges/a0e48deb-edb0-452c-b8d9-8ccb69f32c78" /></a>
+  <a href="https://github.com/AdamCraftmaster/8-Queen-Challenge/actions/workflows/maven.yml"><img src="https://github.com/AdamCraftmaster/8-Queen-Challenge/actions/workflows/maven.yml/badge.svg" alt="Java CI with Maven"></a>
 </p>
 
 > A simple CLI program that solves the 8 queen challenge
